@@ -13,7 +13,6 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
   displayName: 'Install Node.js'
 
 - script: |
@@ -21,3 +20,6 @@ steps:
     npm run build
   displayName: 'npm install and build'
   
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
